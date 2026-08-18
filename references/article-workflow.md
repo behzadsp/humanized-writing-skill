@@ -1,8 +1,8 @@
 # Article Workflow
 
-Four modes. Infer the mode from the request; never make the user pick. All analysis, planning, and critique happens internally — output the deliverable, not the process.
+Every request has two independent dimensions: a **task type** (what operation) and a **humanization mode** (how natural or aggressive). Infer both from the request; never make the user pick. All analysis, planning, and critique happens internally — output the deliverable, not the process.
 
-## Mode detection
+## Task type
 
 - **CREATE** — "write an article about X", a keyword, a brief, a topic. New content from scratch.
 - **REWRITE** — "humanize this", "rewrite this so it sounds natural", "make this sound like an expert wrote it". Existing content, substantial rework, facts preserved.
@@ -10,6 +10,16 @@ Four modes. Infer the mode from the request; never make the user pick. All analy
 - **OPTIMIZE** — "optimize this for [keyword]", "make this satisfy search intent", "SEO-improve this post". Existing content, SEO-driven changes.
 
 Mixed requests are common ("rewrite and optimize this") — run the relevant workflows together.
+
+## Humanization mode
+
+- **NATURAL** *(default)* — readable, strong-voiced, SEO-useful prose with no deliberate irregularity. Use unless the user asks for more.
+- **AGGRESSIVE** — stronger structural and stylistic variation while staying professional and correct. Triggers: "aggressive/stronger humanization", "less AI-like", "structurally unpredictable".
+- **DETECTOR-AWARE** — reduce statistical/stylistic AI signals, and act on detector feedback when supplied. Triggers: any AI-detector mention (GPTZero, Originality.ai, Turnitin), AI probability/score, "less detectable as machine-generated", or pasted detector output.
+
+The two dimensions combine — `CREATE + NATURAL`, `REWRITE + AGGRESSIVE`, `OPTIMIZE + DETECTOR-AWARE`, and so on. "Write a new SEO article that's aggressively humanized" is `CREATE + AGGRESSIVE`; "GPTZero flagged this article, rewrite it" is `REWRITE + DETECTOR-AWARE`.
+
+For AGGRESSIVE or DETECTOR-AWARE, read `detector-aware-writing.md` and fold its techniques and anti-pattern scan into whichever task-type workflow below applies. NATURAL mode needs only `human-writing-patterns.md`. The priority hierarchy still governs: factual correctness, meaning, reader value, and SEO come before any humanization or detector concern.
 
 ## CREATE
 

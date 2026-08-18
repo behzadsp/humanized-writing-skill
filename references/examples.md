@@ -92,3 +92,101 @@ Why it's better: the six vague bullets were really one idea; prose states the me
 > Queue configuration lives in `config/queue.php`, but the decisions that matter happen elsewhere: which connection you pick (Redis for most production apps), how you partition queues by priority, and what your retry and timeout settings do to jobs that fail halfway through a side effect.
 
 Why it's better: skips everything a senior Laravel developer already knows and goes straight to the decisions they actually face. Pitching below the audience reads as filler and costs credibility.
+
+---
+
+# Detector-aware and aggressive humanization
+
+These pairs show AGGRESSIVE and DETECTOR-AWARE edits. They fix structure and rhythm, not just words — and they never trade correctness for statistical oddity. See `detector-aware-writing.md`.
+
+## 8. Uniform AI rhythm → varied natural rhythm
+
+**Before:**
+
+> Caching improves performance by storing data closer to the application. It reduces the number of database queries that need to run. It also lowers the load on the origin server significantly. This results in faster response times for the end user.
+
+**After:**
+
+> Caching keeps data close to the application, so requests stop traveling all the way to the database. Fewer queries, lighter load on the origin. The reader notices only one thing: the page comes back faster.
+
+Why it's better: four same-length declaratives become a short-medium-long mix with an implied transition. Same facts, uneven rhythm.
+
+## 9. Predictable syntax → structurally varied syntax
+
+**Before:**
+
+> You can configure the timeout in the config file. You can set the retry count in the same place. You can enable logging by adding a single line. You can test the changes by running the worker locally.
+
+**After:**
+
+> The timeout and retry count both live in the config file. Logging is one line away. To see it work, run the worker locally and watch what it does with a job that fails halfway through.
+
+Why it's better: the "You can..." template repeated four times is the tell. The rewrite changes subject placement and clause order instead of swapping the verb after "You can".
+
+## 10. Excessive transitions → contextual flow
+
+**Before:**
+
+> Indexes speed up reads. However, they slow down writes. Furthermore, they consume disk space. Moreover, unused indexes still carry a maintenance cost. Therefore, you should only add indexes you actually need.
+
+**After:**
+
+> Indexes speed up reads, but they slow down writes and eat disk space. Even the ones nobody queries still cost you on every insert. Add the indexes you need and no more.
+
+Why it's better: four explicit connectors (However, Furthermore, Moreover, Therefore) drop to one "but" that carries a real contrast. The logic survives in the sentence structure.
+
+## 11. Symmetrical paragraphs → natural paragraph structure
+
+**Before:** three consecutive sections, each built as *definition sentence → two benefit sentences → one example sentence → summary sentence*.
+
+**After:** the first section opens with the definition, the second opens with a concrete failure the feature prevents, and the third answers a likely reader question in two sentences and stops. Section lengths differ because the material differs.
+
+Why it's better: identical paragraph skeletons repeated down a page are a strong machine signal. Letting each section take the shape its content needs breaks the symmetry without losing any information.
+
+## 12. Over-polished prose → credible professional voice
+
+**Before:**
+
+> Kubernetes autoscaling is a powerful mechanism that enables applications to seamlessly handle variable traffic. By automatically adjusting the number of running pods, it ensures optimal resource utilization while maintaining consistent performance across all conditions.
+
+**After:**
+
+> Kubernetes autoscaling adds and removes pods as traffic moves. Done right, you pay for roughly what you use and the service stays responsive during spikes. Done wrong — thresholds too tight, cooldowns too short — it thrashes, scaling up and down while nobody's happy.
+
+Why it's better: the generic vocabulary (powerful, seamlessly, optimal, consistent) gives way to the actual mechanism and a real failure mode. The dash here does work; it isn't decoration.
+
+## 13. Detector-highlighted sentence → substantive rewrite
+
+A detector highlighted the middle sentence:
+
+> Redis is an in-memory data store. **It is widely used for caching, session management, and real-time analytics.** Many companies rely on it in production.
+
+Synonym-spinning the flagged line ("It is commonly utilized for caching, session handling, and live analytics") changes nothing — the whole paragraph is three flat is/are statements. Rewrite the structure:
+
+> Redis holds data in memory instead of on disk, which is why it turns up wherever latency matters: caches, session stores, the counters behind a real-time dashboard. Plenty of production systems lean on it for exactly that.
+
+Why it's better: the fix targets the paragraph's uniform structure, not just the one sentence the tool flagged. Look at the neighbors, not only the highlight.
+
+## 14. Bad "humanizer" typo injection → proper humanization
+
+**Before (a naive "humanizer" that adds errors):**
+
+> Redis, honestly, it just kinda stores ur datas in memory and makes stuff wayyy faster lol its pretty gud for caching and stuff.
+
+**After (real humanization):**
+
+> Redis keeps your data in memory, so reads that would otherwise hit the database come back almost instantly. That's what makes it a good fit for caching.
+
+Why it's better: misspellings, "datas", and forced slang aren't human — they're just wrong, and a detector isn't fooled by broken grammar anyway. Credible authorship comes from rhythm and specificity, not corruption.
+
+## 15. Detector-aware technical writing that preserves terminology
+
+**Before:**
+
+> The system leverages a robust message broker to seamlessly facilitate asynchronous communication, enhancing overall scalability and ensuring optimal throughput across distributed services.
+
+**After:**
+
+> Services talk to each other through RabbitMQ instead of calling directly, so a slow consumer can't block the producer. Messages queue up, workers drain them at their own pace, and you scale throughput by adding consumers to a queue.
+
+Why it's better: the generic filler (leverages, robust, seamlessly, enhancing, optimal) is gone, but the load-bearing technical terms — RabbitMQ, producer, consumer, queue, throughput — stay exactly as they are. Detector-aware editing removes vague words, never correct terminology.

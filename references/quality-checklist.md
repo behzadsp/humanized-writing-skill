@@ -40,3 +40,21 @@ Run this once before delivering substantial long-form content. Fix real problems
 - [ ] Is the introduction longer than it needs to be?
 - [ ] Does the conclusion add value — or should it be cut entirely?
 - [ ] Are there headings or lists that fragment prose without helping the reader?
+
+## Detector-aware QA (AGGRESSIVE / DETECTOR-AWARE only)
+
+Run this pass only when the humanization mode calls for it. See `detector-aware-writing.md`.
+
+- [ ] Are sentence lengths suspiciously uniform?
+- [ ] Are sentence openings repetitive?
+- [ ] Are paragraph structures too symmetrical?
+- [ ] Are transitions overused?
+- [ ] Are conclusions predictable?
+- [ ] Is vocabulary unnecessarily generic?
+- [ ] Does every paragraph explain itself too neatly?
+- [ ] Are lists overused?
+- [ ] Are three-item patterns repeated?
+- [ ] Is punctuation unnaturally uniform?
+- [ ] Did aggressive rewriting damage clarity?
+- [ ] Did rewriting alter facts?
+- [ ] Did rewriting damage search intent or keywords?

@@ -1,6 +1,6 @@
 # Human Writing Patterns
 
-Two halves: patterns to avoid, and the model to follow. Apply both when drafting and when revising.
+Two halves: patterns to avoid, and the model to follow. Apply both when drafting and when revising. This is the NATURAL-mode baseline. For AGGRESSIVE or DETECTOR-AWARE work — stronger structural variation, deliberate stylistic irregularity, and detector feedback — also read `detector-aware-writing.md`.
 
 ## Part 1: Formulaic AI patterns to avoid
 
